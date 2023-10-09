@@ -2,7 +2,7 @@
   <div class="scaner" ref="scaner">
     <div class="banner" v-if="showBanner">
       <i class="close_icon" @click="() => (showBanner = false)"></i>
-      <p class="text">若当前浏览器无法扫码，请切换其他浏览器尝试</p>
+      <p class="text">提示</p>
     </div>
     <div class="cover">
       <p class="line"></p>
@@ -12,8 +12,8 @@
       <span class="square bottom left"></span>
       <p class="tips">将二维码放入框内，即可自动扫描</p>
     </div>
-    <div class="btn">
-      <span class="text">你好啊</span>
+    <div class="btn" @click="setup">
+      <span class="text" >你好啊</span>
       <svg
         t="1696869280858"
         class="icon"
@@ -37,7 +37,7 @@
       :height="videoWH.height"
       controls></video>
     <canvas v-show="!showPlay" ref="canvas" />
-    <button v-show="showPlay" @click="run">开始</button>
+    <button v-show="showPlay" @click="setup">开始</button>
   </div>
 </template>
 
@@ -213,6 +213,8 @@ export default {
                 this.$emit('error-captured', error)
               })
           })
+      } else {
+        window.alert('获取数据失败')
       }
     },
     run() {
@@ -263,7 +265,7 @@ export default {
   opacity: 0.9;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  display: flex ;
+  display: flex;
   gap: 4px;
   align-items: center;
   justify-content: space-between;
@@ -289,11 +291,11 @@ export default {
   height: calc(100%);
 }
 .scaner .banner {
-  width: 340px;
+  width: 240px;
   position: absolute;
   top: 16px;
   left: 50%;
-  margin-left: -170px;
+  transform: translateX(-50%);
   background: #098907;
   border-radius: 8px;
   box-sizing: border-box;
