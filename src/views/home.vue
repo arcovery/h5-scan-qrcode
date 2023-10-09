@@ -2,10 +2,10 @@
   <div class="home">
     <i class="banner"></i>
     <div class="tips">
-      <p class="tips_title">HELLO WORLD</p>
-      <p class="tips_descript">Scan QRcode By Your Browser</p>
+      <p class="tips_title">示例</p>
+      <p class="tips_descript">浏览器调用摄像头</p>
     </div>
-    <button class="button" @click="$router.push({name: 'Scan'})">SCAN QRCODE</button>
+    <button class="button" @click="$router.push({name: 'Scan'})">开始</button>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
 <style>
 .home {
   height: 100vh;
-  background: #5F68E8;
+  background: transparent;
   position: relative;
 }
 .home .banner {
@@ -27,7 +27,7 @@ export default {
   width: 100%;
   height: 0px;
   padding-top: 150%;
-  background: url('../assets/bg.png') no-repeat center;
+  /* background: url('../assets/bg.png') no-repeat center; */
   background-size: auto 100%;
   animation: move 5s ease-in-out infinite;
   animation-fill-mode: both;
